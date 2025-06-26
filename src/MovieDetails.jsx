@@ -48,8 +48,7 @@ const MovieDetails = () => {
 
     return (
         <main>
-            {/*<div className="pattern" />*/}
-            {/*<div className="wrapper">*/}
+
                 <div>
                     {isLoading ? (
                         <Spinner />
@@ -80,7 +79,6 @@ const MovieDetails = () => {
                         <p>No movie details found.</p>
                     )}
                 </div>
-            {/*</div>*/}
         </main>
     );
 };

@@ -25,7 +25,8 @@ A sleek and responsive **movie repository application** that allows users to exp
 ## 📸 Screenshots
 
 > Example:  
-> ![Home Page](./screenshots/homepage.png)  
-> ![Search Page](./screenshots/search.png)
+> ![Home Page](src/screenshots/homepage-header.png)  
+> ![Search Page](src/screenshots/search-page.png)
+> ![Movie Description](src/screenshots/movie-description.png)
 
 ---
