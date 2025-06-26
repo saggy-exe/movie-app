@@ -96,9 +96,8 @@ const App = () => {
                     <>
                     <div className="wrapper">
                         <header>
-                            {/*<img className="logo" src="./logo.png" alt="Logo" />*/}
                             <img src="./hero.png" alt="Hero Banner"/>
-                            <h1>Find <span className="text-gradient">Movies</span> You'll Enjoy Without the Hassle</h1>
+                            <h1>Find <span className="text-gradient">Movies</span> You'll <br/>Binge and Chill</h1>
 
                             <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
                         </header>
@@ -132,6 +131,8 @@ const App = () => {
                                     ))}
                                 </ul>
                             )}
+
+                            <h3>*All data shown has been fetched from <a href={"https://www.themoviedb.org/"} >TMDB</a>.</h3>
                         </section>
                     </div>
                     </>

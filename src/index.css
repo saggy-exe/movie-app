@@ -35,6 +35,10 @@
         @apply text-2xl font-bold text-white sm:text-3xl;
     }
 
+    h3 {
+        @apply text-2xl font-normal text-white sm:text-2xl;
+    }
+
     main {
         @apply min-h-screen relative bg-primary;
     }
