@@ -4,6 +4,8 @@ import Spinner from './components/Spinner.jsx'
 import MovieCard from './components/MovieCard.jsx'
 import { useDebounce } from 'react-use'
 import {getTrendingMovies, updateSearchCount} from "./appwrite.js";
+import { Routes, Route } from 'react-router-dom';
+import MovieDetails from './MovieDetails.jsx';
 
 const API_BASE_URL = 'https://api.themoviedb.org/3';
 
@@ -88,47 +90,58 @@ const App = () => {
         <main>
             <div className="pattern"/>
 
-            <div className="wrapper">
-                <header>
-                    <img src="./hero.png" alt="Hero Banner" />
-                    <h1>Find <span className="text-gradient">Movies</span> You'll Enjoy Without the Hassle</h1>
 
-                    <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-                </header>
+                <Routes>
+                <Route path="/" element={
+                    <>
+                    <div className="wrapper">
+                        <header>
+                            {/*<img className="logo" src="./logo.png" alt="Logo" />*/}
+                            <img src="./hero.png" alt="Hero Banner"/>
+                            <h1>Find <span className="text-gradient">Movies</span> You'll Enjoy Without the Hassle</h1>
 
-                {trendingMovies.length > 0 && (
-                    <section className="trending">
-                        <h2>Trending Movies</h2>
-                        <ul>
-                            {trendingMovies.map((movie, index) => (
-                                <li key ={movie.$id}>
-                                    <p>{index + 1}</p>
-                                    <img src={movie.poster_url} alt ={movie.title} />
-                                </li>
-                            ))}
-                        </ul>
+                            <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
+                        </header>
 
-                    </section>
-                )}
+                        {trendingMovies.length > 0 && (
+                            <section className="trending">
+                                <h2>Trending Movies</h2>
+                                <ul>
+                                    {trendingMovies.map((movie, index) => (
+                                        <li key={movie.$id}>
+                                            <p>{index + 1}</p>
+                                            <img src={movie.poster_url} alt={movie.title}/>
+                                        </li>
+                                    ))}
+                                </ul>
 
-                <section className="all-movies">
-                    <h2>All Movies</h2>
+                            </section>
+                        )}
 
-                    {isLoading ? (
-                        <Spinner />
-                    ) : errorMessage ? (
-                        <p className="text-red-500">{errorMessage}</p>
-                    ) : (
-                        <ul>
-                            {movieList.map((movie) => (
-                                <MovieCard key={movie.id} movie={movie} />
-                            ))}
-                        </ul>
-                    )}
-                </section>
-            </div>
+                        <section className="all-movies">
+                            <h2>All Movies</h2>
+
+                            {isLoading ? (
+                                <Spinner/>
+                            ) : errorMessage ? (
+                                <p className="text-red-500">{errorMessage}</p>
+                            ) : (
+                                <ul>
+                                    {movieList.map((movie) => (
+                                        <MovieCard key={movie.id} movie={movie}/>
+                                    ))}
+                                </ul>
+                            )}
+                        </section>
+                    </div>
+                    </>
+                }/>
+
+                <Route path="/movies/:id" element={<MovieDetails/>}/>
+                </Routes>
+
         </main>
-    )
+    );
 }
 
 export default App
