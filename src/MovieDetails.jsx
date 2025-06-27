@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import Spinner from "./components/Spinner.jsx";
+import Spinner from "./components/spinner.jsx";
 
 const API_BASE_URL = 'https://api.themoviedb.org/3';
 
